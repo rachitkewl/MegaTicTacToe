@@ -1,0 +1,48 @@
+*
+		{
+			padding:0px;
+			margin:0px;
+		}
+	
+		div
+		{
+			border:1px solid black;
+		}
+		.gamecontainer
+		{
+			width:625px;
+			margin:auto;
+			border:none;
+		}
+		.big
+		{
+			width:201px;
+			height:201px;
+			float:left;
+			font-size:180px;
+			position:relative;
+		}
+		.small
+		{
+			position:relative;
+			width:65px;
+			float:left;
+			height:65px;
+			-webkit-transition: background-color 1s;
+			font-size:60px;
+		}
+		.small:hover
+		{
+			cursor:pointer;
+			background-color:grey;
+		}
+
+		.smallAfter
+		{
+			position:relative;
+			width:65px;
+			float:left;
+			height:65px;
+			background-color:rgba(138, 126, 126, 0.43);
+			font-size:60px;
+		}

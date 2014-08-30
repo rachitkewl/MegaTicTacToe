@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Mega Tic-Tac-Toe</title>
+	<style>
+		*
+		{
+			padding:0px;
+			margin:0px;
+		}
+		body
+		{
+			margin:auto;
+		}
+		div
+		{
+			border-color:black;
+		}
+		.container
+		{
+			width:810px;
+		}
+		.big
+		{
+			width:252px;
+			height:252px;
+			float:left;
+			position:relative;
+		}
+		.small
+		{
+			float:left;
+			position:relative;
+			width:80px;
+			height:80px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+	<?php 
+		for($i=1; $i<10;$i++)
+		{
+			echo "<div class = 'big ".$i."' > </div>";
+			for($j=1; $j<10;$j++)
+			{
+				echo "\t <div class = 'small ".$j."'> </div>";
+			}
+		}
+
+
+	?>
+	</div>
+</body>
+</html>
+
+
+
+
+
