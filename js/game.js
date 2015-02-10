@@ -1,5 +1,6 @@
 		x=0;
 		var posBig='';
+		//var finishedBoxes=Array();
 		function game(id)
 		{
 
@@ -7,19 +8,32 @@
 			check='big ';
 			check=check.concat(posBig.toString());
 			pos=parseInt(posBig)+1;
+			
+			if(id.parentNode.style.borderColor=='red')
+			{
+				alert("Bro, don't try to cheat. This block is already won.");
+				return ;
+			}	
+
 			if(id.parentNode.className.indexOf(check)<0)
 			{
+				if(document.getElementsByClassName(check)[0].style.borderColor=='red')
+				{
+					posBig='';
+					id.click();
+					return;
+				}
 				document.getElementsByClassName(check)[0].style.borderColor='cyan';
 				alert('Play in Block No ' + pos.toString());
 				return;
 			}
 
 
-			if(id.parentNode.style.borderColor=='red')
-			{
-				alert("Bro, don't try to cheat. This block is already won.");
-				return ;
-			}	
+			//to check if finishedBoxes are not activated again for playing	
+			if(document.getElementsByClassName(check)[0].style.borderColor!='red')
+				document.getElementsByClassName(check)[0].style.borderColor='black';
+		
+
 			turn='';
 			if(id.innerHTML=='X' || id.innerHTML=='O')
 			{
@@ -37,10 +51,12 @@
 				id.innerHTML='O';
 				turn='O';
 			}
-			document.getElementsByClassName(check)[0].style.borderColor='black';
+			
+
 
 			//checks for winner of small ttt
 			flag=0;
+			//copy_posBig=posBig;
 			data=id.parentNode.children;
 			for (var i = 0; i < 9; i++) {
 				if(data[i]==id){
@@ -85,7 +101,8 @@
 
 				else
 					id.parentNode.style.backgroundImage='url("images/Kata.png")';
-				posBig='' //Other player can play anywhere now
+				
+				//finishedBoxes.push(copy_posBig);
 			}
 
 			
@@ -120,9 +137,8 @@
 				//t=document.createTextNode(turn);
 				//id.parentNode.appendChild(t);
 				
-				
-
-				if(turn=='O')
+			
+					if(turn=='O')
 					alert("O wins the game!");
 				else
 					alert("X wins the game!");
